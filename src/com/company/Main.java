@@ -9,16 +9,36 @@ public class Main {
 
 
         Scanner userInput = new Scanner (System.in);
-        System.out.print("Enter a boolean expression (i.e. a&&b");
-        String userExpression = userInput.nextLine().trim();
+        System.out.println("Enter a boolean expression (i.e. a&&b)");
+        String userExpression = userInput.nextLine();
 
-        userInput.useDelimiter("&&");
-        for(int j = 0; userInput.hasNext(); j++){
-            variables[j] = userInput.next();
+        Scanner findVariables = new Scanner(userExpression);
+
+        findVariables.useDelimiter("&&");
+        for(int j = 0; findVariables.hasNext(); j++){
+            variables[j] = findVariables.next();
             possibleLength++;
         }
         int possibilities[] = new int[(int)Math.pow(2, possibleLength)];
+        String resizeVariables[] = new String[possibleLength];
 
+        //System.out.println(variables.length);
+        System.out.println("Amount of variables: " + resizeVariables.length);
+        System.out.println("Length of Truth Table: " + possibilities.length);
+
+
+        for (int i=0;i<possibilities.length;i++){
+            int mask = possibilities.length-1;
+            while (mask > 0){
+                if ((mask & i) == 0){
+                    System.out.print("0");
+                } else {
+                    System.out.print("1");
+                }
+                mask = mask >> 1;
+            }
+            System.out.println();
+        }
 
 
     }
