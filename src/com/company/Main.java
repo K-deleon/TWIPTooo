@@ -31,9 +31,9 @@ public class Main {
             int mask = possibilities.length-1;
             while (mask > 0){
                 if ((mask & i) == 0){
-                    System.out.print("0");
+                    System.out.print("T");
                 } else {
-                    System.out.print("1");
+                    System.out.print("F");
                 }
                 mask = mask >> 1;
             }
